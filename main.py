@@ -259,7 +259,7 @@ if __name__ == "__main__":
         elif opt == '4':
                 pass
         elif opt == '5':
-            pass
+            inlocuire_elemte(lista)
         elif opt == 'x':
             break
         else:
