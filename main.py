@@ -72,7 +72,7 @@ def isSuperprim(x):
         copyx = copyx // 10
     nrcifre = nrcifre // 10
     while nrcifre != 0:
-        if isPrime(x % nrcifre) == False:
+        if isPrime(x // nrcifre) is False:
             return False
         nrcifre = nrcifre // 10
     return True
@@ -107,6 +107,24 @@ def cmmdc_lista(lista):
     for i in range(2,len(lista)):
         rez = cmmdc(rez, lista[i])
     return rez
+
+def superprime_lista(lista):
+    '''
+    afis toate elemnetel supermprime
+    :param lista: lista data
+    :return: toate elemnetel supermprime
+
+
+    '''
+    lst = []
+    for x in lista:
+        if isSuperprim(x):
+            lst.append(x)
+    return lst
+
+
+def test_superprime_lista():
+    assert superprime_lista([239]) == [239]
 
 
 def test_cmmdc_lista():
@@ -219,14 +237,14 @@ def test_nr_neg():
 def all_tests():
     test_nr_neg()
     test_cel_mai_mic_nr_cu_ultima_cifra_data()
-   # test_isSuperprim()
+    test_isSuperprim()
     test_cmmdc()
     test_cmmdc_lista()
     test_creare_lista_pozitiva()
     test_og()
     test_inversare_nr_neg()
     test_inlocuire_elemente()
-
+    test_superprime_lista()
 
 def printMenu():
     print("1.Citire lista(Dati elementele separate prin virgula): ")
@@ -257,9 +275,11 @@ if __name__ == "__main__":
             else:
                 print(mini)
         elif opt == '4':
-                pass
+                lst = []
+                lst = superprime_lista()
+                print(lst)
         elif opt == '5':
-            inlocuire_elemte(lista)
+           print(inlocuire_elemte(lista))
         elif opt == 'x':
             break
         else:
